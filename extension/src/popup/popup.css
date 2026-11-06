@@ -1,0 +1,153 @@
+:root {
+  --red: #ec3750;
+  --bg: #ffffff;
+  --fg: #1f2d3d;
+  --muted: #8492a6;
+  --line: #e0e6ed;
+  --track: #c0ccda;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17171d;
+    --fg: #f9fafc;
+    --muted: #8492a6;
+    --line: #252429;
+    --track: #3c4858;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  max-width: 420px;
+  background: var(--bg);
+  color: var(--fg);
+  font: 14px/1.4 system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+h1 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li + li {
+  border-top: 1px solid var(--line);
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+
+.text {
+  display: grid;
+  gap: 2px;
+  flex: 1;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.description {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+input[role='switch'] {
+  appearance: none;
+  flex: none;
+  position: relative;
+  width: 36px;
+  height: 20px;
+  margin: 0;
+  border-radius: 999px;
+  background: var(--track);
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+input[role='switch']::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 120ms ease;
+}
+
+input[role='switch']:checked {
+  background: var(--red);
+}
+
+input[role='switch']:checked::after {
+  transform: translateX(16px);
+}
+
+input[role='switch']:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+footer a {
+  color: var(--red);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  input[role='switch'],
+  input[role='switch']::after {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  input[role='switch'] {
+    border: 1px solid CanvasText;
+  }
+  input[role='switch']::after {
+    background: CanvasText;
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "hack-club-tools",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Browser extension for Chrome and Firefox with small tools that bring Hack Club to the web.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "bun test",
+    "lint": "web-ext lint --source-dir extension",
+    "build": "web-ext build --source-dir extension --artifacts-dir dist --overwrite-dest",
+    "start:firefox": "web-ext run --source-dir extension --target firefox-desktop --start-url https://github.com/hackclub",
+    "start:chrome": "web-ext run --source-dir extension --target chromium --start-url https://github.com/hackclub"
+  },
+  "devDependencies": {
+    "web-ext": "^10.8.0"
+  }
+}

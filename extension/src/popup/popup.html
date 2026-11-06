@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Hack Club Tools</title>
+    <link rel="stylesheet" href="popup.css" />
+    <script type="module" src="popup.js"></script>
+  </head>
+  <body>
+    <header>
+      <img src="../../icons/icon-48.png" width="32" height="32" alt="" />
+      <h1>Hack Club Tools</h1>
+    </header>
+    <main>
+      <ul id="tools" aria-label="Tools"></ul>
+    </main>
+    <footer>
+      Changes apply right away on open tabs.
+      <a href="https://hackclub.com" target="_blank" rel="noreferrer">Hack Club Website</a>
+    </footer>
+    <template id="tool">
+      <li>
+        <label>
+          <span class="text">
+            <span class="name"></span>
+            <span class="description"></span>
+          </span>
+          <input type="checkbox" role="switch" />
+        </label>
+      </li>
+    </template>
+  </body>
+</html>

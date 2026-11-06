@@ -1,0 +1,15 @@
+/* Outline follows border-radius, works on <img>, and never shifts layout. */
+img[data-hct-ring] {
+  outline: 2px solid #ec3750 !important;
+  outline-offset: 2px !important;
+}
+
+/* Small avatars sit in tight rows: draw the ring inside the edge so it's never clipped. */
+img[data-hct-ring='s'] {
+  outline-offset: -2px !important;
+}
+
+img[data-hct-ring='l'] {
+  outline-width: 4px !important;
+  outline-offset: 3px !important;
+}
