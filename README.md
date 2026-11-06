@@ -6,7 +6,7 @@ A browser extension for Chrome and Firefox with small tools that bring Hack Club
 
 | Tool | Site | What it does |
 | --- | --- | --- |
-| **Shipped ring** | github.com | Adds a ring of slowly rotating Hack Club colored stripes around the avatar of anyone who has shipped a project with Hack Club. Hover the avatar to see how many. |
+| **Shipped ring** | github.com | Adds a slowly rotating Hack Club red ring, striped with orange and yellow, around the avatar of anyone who has shipped a project with Hack Club. Hover the avatar to see how many. |
 
 Every tool can be switched on or off from the toolbar popup. Changes apply to open tabs right away.
 

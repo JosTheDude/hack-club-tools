@@ -29,15 +29,12 @@ img[data-hct-ring] {
   padding: var(--hct-gap) !important;
   background:
     linear-gradient(var(--hct-page), var(--hct-page)) padding-box,
+    /* hackclub.com/branding: "Red is the hero; the rest are supporting accents." */
     repeating-conic-gradient(
         from var(--hct-turn),
-        #ec3750 0 25.71deg,
-        #ff8c37 0 51.43deg,
-        #f1c40f 0 77.14deg,
-        #33d6a6 0 102.86deg,
-        #5bc0de 0 128.57deg,
-        #338eda 0 154.29deg,
-        #a633d6 0 180deg
+        #ec3750 0 72deg,
+        #ff8c37 0 102deg,
+        #f1c40f 0 120deg
       )
       border-box !important;
   box-shadow: none !important;
