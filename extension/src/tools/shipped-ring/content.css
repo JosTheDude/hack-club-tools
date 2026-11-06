@@ -1,15 +1,61 @@
-/* Outline follows border-radius, works on <img>, and never shifts layout. */
-img[data-hct-ring] {
-  outline: 2px solid #ec3750 !important;
-  outline-offset: 2px !important;
+/*
+ * Rotating Hack Club stripes around shipped avatars.
+ *
+ * <img> can't have ::before, so the ring is the img's own transparent border showing a conic
+ * gradient underneath, with a page-coloured layer over the padding as the gap. box-sizing keeps
+ * the avatar's footprint the same, so nothing on the page moves.
+ *
+ * Spinning a registered angle is paint-only: no layout, nothing for offscreen avatars, and it
+ * stops entirely for people who prefer reduced motion.
+ */
+@property --hct-turn {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
 }
 
-/* Small avatars sit in tight rows: draw the ring inside the edge so it's never clipped. */
+@keyframes hct-spin {
+  to {
+    --hct-turn: 360deg;
+  }
+}
+
+img[data-hct-ring] {
+  --hct-width: 2px;
+  --hct-gap: 1px;
+  --hct-page: var(--bgColor-default, var(--color-canvas-default, Canvas));
+  box-sizing: border-box !important;
+  border: var(--hct-width) solid transparent !important;
+  padding: var(--hct-gap) !important;
+  background:
+    linear-gradient(var(--hct-page), var(--hct-page)) padding-box,
+    repeating-conic-gradient(
+        from var(--hct-turn),
+        #ec3750 0 25.71deg,
+        #ff8c37 0 51.43deg,
+        #f1c40f 0 77.14deg,
+        #33d6a6 0 102.86deg,
+        #5bc0de 0 128.57deg,
+        #338eda 0 154.29deg,
+        #a633d6 0 180deg
+      )
+      border-box !important;
+  box-shadow: none !important;
+  animation: hct-spin 6s linear infinite;
+}
+
+/* Small avatars sit in tight rows: no gap, so the face stays as big as possible. */
 img[data-hct-ring='s'] {
-  outline-offset: -2px !important;
+  --hct-gap: 0px;
 }
 
 img[data-hct-ring='l'] {
-  outline-width: 4px !important;
-  outline-offset: 3px !important;
+  --hct-width: 4px;
+  --hct-gap: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  img[data-hct-ring] {
+    animation: none;
+  }
 }

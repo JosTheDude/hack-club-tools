@@ -10,7 +10,8 @@
     "lint": "web-ext lint --source-dir extension",
     "build": "web-ext build --source-dir extension --artifacts-dir dist --overwrite-dest",
     "start:firefox": "web-ext run --source-dir extension --target firefox-desktop --start-url https://github.com/hackclub",
-    "start:chrome": "web-ext run --source-dir extension --target chromium --start-url https://github.com/hackclub"
+    "start:chrome": "web-ext run --source-dir extension --target chromium --start-url https://github.com/hackclub",
+    "sign:firefox": "web-ext sign --source-dir extension --artifacts-dir dist --channel unlisted"
   },
   "devDependencies": {
     "web-ext": "^10.8.0"

@@ -5,7 +5,7 @@ export const TOOLS = [
     id: 'shippedRing',
     name: 'Shipped ring',
     description:
-      'Adds a red ring around GitHub avatars of people who have shipped a project with Hack Club.',
+      'Adds a rotating Hack Club ring around GitHub avatars of people who have shipped a project with Hack Club.',
     site: 'github.com',
     defaultEnabled: true,
   },

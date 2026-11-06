@@ -6,7 +6,7 @@ A browser extension for Chrome and Firefox with small tools that bring Hack Club
 
 | Tool | Site | What it does |
 | --- | --- | --- |
-| **Shipped ring** | github.com | Adds a Hack Club red ring around the avatar of anyone who has shipped a project with Hack Club. Hover the avatar to see how many. |
+| **Shipped ring** | github.com | Adds a ring of slowly rotating Hack Club colored stripes around the avatar of anyone who has shipped a project with Hack Club. Hover the avatar to see how many. |
 
 Every tool can be switched on or off from the toolbar popup. Changes apply to open tabs right away.
 
@@ -25,10 +25,16 @@ Store listings are coming. Until then, load it from source:
 2. Open `chrome://extensions` and turn on **Developer mode**.
 3. Click **Load unpacked** and pick the `extension/` folder.
 
-**Firefox** (140 or newer)
+**Firefox / Zen** (140 or newer)
 1. Clone this repo.
 2. Open `about:debugging#/runtime/this-firefox`.
 3. Click **Load Temporary Add-on…** and pick `extension/manifest.json`.
+
+Temporary add-ons are removed when the browser quits. To keep it installed, sign it with Mozilla (free, no store listing, usually takes a few minutes):
+
+1. Create API credentials at <https://addons.mozilla.org/developers/addon/api/key/>.
+2. Run `WEB_EXT_API_KEY=… WEB_EXT_API_SECRET=… bun run sign:firefox`.
+3. Open the signed `.xpi` from `dist/` in Firefox or Zen to install it permanently.
 
 ## Development
 
